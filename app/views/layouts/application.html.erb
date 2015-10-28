@@ -3,13 +3,30 @@
 <head>
   <title>BeerSnob</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
   <%= csrf_meta_tags %>
 </head>
 <body>
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo right"><strong>BS</strong></a>
+  <ul id="nav-mobile" class="left hide-on-med-and-down">
+    <li><%= link_to 'Home'     , root_path %></li>
+    <% if user_signed_in? %>
+      <li><%= link_to 'Beers'    , posts_path %></li>
+      <li><%= link_to 'Locations', posts_path %></li>
+      <li><%= link_to 'Posts'    , posts_path %></li>
+      <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
+    <% else %>
+      <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+      <li><%= link_to 'Log In'   , new_user_session_path %></li>
+    <% end %>
+   </ul>
+ </div>
+</nav>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
 <%= yield %>
-
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </body>
 </html>
