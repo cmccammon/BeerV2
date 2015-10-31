@@ -1,12 +1,19 @@
 class BeersController < ApplicationController
-  before_action :set_beer, only: [:show, :edit, :update, :destroy]
+  before_action :set_beer, only: [:edit, :update, :destroy]
 
   def index
-    @beers = Brewery.search.beers(q: params[:search])
+    if params[:search].nil?
+      @beers = []
+    else
+      @beers = Brewery.search.beers(q: params[:search])
+    end
   end
 
   def show
+    @brewery_name = Brewery.breweries.find('E6WUse')
+    @brewery = Brewery.brewery('E6WUse').beers
 
   end
+
 
 end

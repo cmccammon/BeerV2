@@ -1,2 +1,10 @@
-<h1>Beers#show</h1>
-<p>Find me in app/views/beers/show.html.erb</p>
+<h1>Beers from <%= @brewery_name.name %> </h1>
+
+<div class="collection">
+ <% @brewery.each do |beer| %>
+    <p class="collection-item active"><%= beer.name %></p>
+    <p class="collection-item"><%= beer.id %></p>
+    <p class="collection-item"><%= beer.abv %></p>
+
+  <% end %>
+</div>

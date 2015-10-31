@@ -2,28 +2,17 @@
 
 <%= form_tag beers_index_path, :method => 'get' do %>
   <p>
-    <%= text_field_tag :search, params[:search] %><%= submit_tag 'search' %>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag 'search', :name => nil %>
   </p>
 <% end %>
-<table>
-  <thead>
-    <tr>
-      <th>id</th>
-      <th>ABV</th>
-      <th>Name</th>
-      <th>Brewery</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+
+  <div class="collection">
     <% @beers.each do |beer| %>
-      <tr>
-        <td><%= beer.id %></td>
-        <td><%= beer.abv %></td>
-        <td><%= beer.name %></td>
-        <td><%= beer.breweries.inspect %></td>
-      </tr>
+    <a href="#!" class="collection-item active"><%= beer.name %></a>
+    <a href="#!" class="collection-item"><%= beer.abv %></a>
+    <a href="#!" class="collection-item"><%= beer.id %></a>
+    <a href="#!" class="collection-item">Brewery</a>
     <% end %>
-  </tbody>
-</table>
+  </div>
