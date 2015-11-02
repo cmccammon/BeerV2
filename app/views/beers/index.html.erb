@@ -5,14 +5,12 @@
     <%= submit_tag 'search', :name => nil %>
   </p>
 <% end %>
-<%= @who_beer.name %>
-
 
   <div class="collection">
     <% @beers.each do |beer| %>
     <a href="#!" class="collection-item active"><%= beer.name %></a>
     <a href="#!" class="collection-item"><%= beer.abv %></a>
-    <a href="#!" class="collection-item"><%= beer.id %></a>
+    <a href="#" class="collection-item"><%= beer.id %></a>
     <a href="#!" class="collection-item">Brewery</a>
     <% end %>
   </div>

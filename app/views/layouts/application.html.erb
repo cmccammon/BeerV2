@@ -25,17 +25,15 @@
  </div>
 </nav>
 
-<% if user_signed_in? %>
-  <%= "Hello, #{@current_user.inspect}" %>
-<% end %>
-
-<div class="container">
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
+
 <%= yield %>
 
-</div>
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
+
+
 </body>
 
 </html>

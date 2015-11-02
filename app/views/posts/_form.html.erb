@@ -1,3 +1,4 @@
+
 <%= form_for(@post) do |f| %>
   <% if @post.errors.any? %>
     <div id="error_explanation">
@@ -12,7 +13,36 @@
 
   <div class="field">
     <!-- Modal Trigger -->
-    <a class="modal-trigger waves-effect waves-light btn" href="#modal1">Beers</a>
+    <a class="modal-trigger waves-effect waves-light btn" href="#beer_modal">Beer</a>
+    <!-- Modal Structure -->
+    <div id="beer_modal" class="modal">
+      <div class="modal-content">
+        <h4><%= form_tag beers_index_path, :method => 'get' do %>
+          <p>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag 'search', :name => nil %>
+          </p>
+        <% end %>
+       </h4>
+        <p>A bunch of text</p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
+    <p></p>
+    <!-- Modal Trigger -->
+    <a class="modal-trigger waves-effect waves-light btn" href="#loc_modal">location</a><br>
+    <!-- Modal Structure -->
+    <div id="loc_modal" class="modal">
+      <div class="modal-content">
+        <h4>Location search</h4>
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      </div>
+    </div>
 
     <%= f.label :comment %><br>
     <%= f.text_field :comment %>
