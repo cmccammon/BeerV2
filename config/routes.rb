@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'welcome/index'
+
   devise_for :users, :controllers => { registrations: 'registrations' }
 
   get 'beers/index'
   get 'beers/show'
-
   resources :posts
 
-  root to: "posts#index"
+  get "/welcome", to: "welcome#index", as: :welcome_page
+
+  root to: "welcome#index"
 end

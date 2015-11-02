@@ -1,11 +1,11 @@
 <h1>Listing Beers</h1>
-<%= @who_beer.name %>
 <%= form_tag beers_index_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'search', :name => nil %>
   </p>
 <% end %>
+<%= @who_beer.name %>
 
 
   <div class="collection">
