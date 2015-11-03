@@ -3,10 +3,13 @@
 <head>
   <title>BeerSnob</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-
   <%= csrf_meta_tags %>
 </head>
-<body>
+  <% if controller_name == "welcome" %>
+  <body class="welcome">
+  <% else %>
+  <body>
+  <% end %>
 <nav>
   <div class="nav-wrapper">
     <a href="#" class="brand-logo right"><strong>BS</strong></a>
@@ -31,8 +34,6 @@
 <%= yield %>
 
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-
-
 
 </body>
 
