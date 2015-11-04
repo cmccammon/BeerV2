@@ -16,9 +16,7 @@
       <tr>
         <td><%= post.comment %></td>
         <td><%= post.user.full_name %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td class="btn"><%= link_to 'Show', post %></td>
       </tr>
     <% end %>
   </tbody>

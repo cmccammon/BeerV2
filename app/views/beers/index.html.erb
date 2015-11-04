@@ -6,11 +6,11 @@
   </p>
 <% end %>
 
-  <ul class="collection">
+  <ul class="collection light-blue lighten-2" >
     <% @beers.each do |beer| %>
-    <li class="collection-item active"><h4><%= link_to 'beer.name', welcome_page %></h4></li>
-    <li class="collection-item"><%= beer.abv %></li>
-    <li class="collection-item"><%= beer.id %></li>
-    <li class="collection-item"><%= beer.description %></li>
+    <li class="collection-item active"><h4><%= link_to beer.name, beers_show_path(beer_id: beer.id) %></h4></li>
+    <li class="collection-item">ABV: <%= beer.abv %></li>
+    <li class="collection-item">IBU: <%= beer.ibu %></li>
+    <li class="collection-item">inspect: <%= beer.description %></li>
     <% end %>
   </ul>

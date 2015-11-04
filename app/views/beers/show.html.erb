@@ -1,9 +1,7 @@
-<h1>Beers from <%= @brewery_name.name %> </h1>
+<h4>Beer details</h4>
 
-<div class="collection">
- <% @brewery.each do |beer| %>
-    <p class="collection-item active"><%= beer.name %></p>
-    <p class="collection-item"><%= beer.id %></p>
-    <p class="collection-item"><%= beer.abv %></p>
-  <% end %>
-</div>
+<ul>
+    <h3><%= @beer.name %></h3><%= image_tag(@beer.labels.medium) %>
+    <li><strong>Abv: </strong><%= @beer.abv %></li>
+    <li><strong>glassware: </strong><%= @beer.glass.name %></li>
+</ul>

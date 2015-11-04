@@ -10,12 +10,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    
   end
 
   # GET /posts/new
   def new
     @post = current_user.posts.build
-
   end
 
   # GET /posts/1/edit

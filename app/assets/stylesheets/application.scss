@@ -2,7 +2,9 @@
 $primary-color: color("light-blue", "lighten-2") !default;
 @import "materialize";
 
-
+.ilike-blue-container {
+  @extend .light-blue, .lighten-2;
+}
 .welcome {
   /* Location of the image */
   background-image: url('background_photo.jpg');
@@ -19,7 +21,7 @@ $primary-color: color("light-blue", "lighten-2") !default;
 }
 
 a {
-  color: #ffffff;
+  color: white;
 }
 .centered {
   position: fixed;

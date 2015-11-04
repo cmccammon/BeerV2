@@ -1,10 +1,10 @@
 class ProfileController < ApplicationController
   def index
-    @post = Post.all
+    @user_posts = current_user.posts
   end
 
   def show
-    @user = current_user
+
   end
 
 end
