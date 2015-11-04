@@ -6,11 +6,11 @@
   </p>
 <% end %>
 
-  <div class="collection">
+  <ul class="collection">
     <% @beers.each do |beer| %>
-    <a href="#!" class="collection-item active"><%= beer.name %></a>
-    <a href="#!" class="collection-item"><%= beer.abv %></a>
-    <a href="#" class="collection-item"><%= beer.id %></a>
-    <a href="#!" class="collection-item">Brewery</a>
+    <li class="collection-item active"><h4><%= link_to 'beer.name', welcome_page %></h4></li>
+    <li class="collection-item"><%= beer.abv %></li>
+    <li class="collection-item"><%= beer.id %></li>
+    <li class="collection-item"><%= beer.description %></li>
     <% end %>
-  </div>
+  </ul>

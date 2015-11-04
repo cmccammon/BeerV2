@@ -1,0 +1,8 @@
+
+<%= @post.each do |u| %>
+<ul>
+
+  <li><%= u.comment %></li>
+  <li><%= u.user.full_name %></li>
+</ul>
+<% end %>
