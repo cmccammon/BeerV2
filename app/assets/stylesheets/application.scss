@@ -1,10 +1,9 @@
 @import "materialize/components/color";
 $primary-color: color("light-blue", "lighten-2") !default;
+$secondary-color: color("light-blue", "lighten-2") !default;
 @import "materialize";
 
-.ilike-blue-container {
-  @extend .light-blue, .lighten-2;
-}
+
 .welcome {
   /* Location of the image */
   background-image: url('background_photo.jpg');
