@@ -1,5 +1,5 @@
 <h1>Listing of breweries</h1>
-<%= form_tag beers_brewery_path, :method => 'get' do %>
+<%= form_tag breweries_path, :method => 'get' do %>
   <p>
     <%= text_field_tag :search, params[:search] %>
     <%= submit_tag 'search', :name => nil %>
@@ -7,8 +7,13 @@
 <% end %>
 
 <ul>
+
   <% @breweries.each do |b| %>
   <li><%= image_tag(b.images[:medium]) if b.images %></li>
-  <li><%= b.name if b.images %></li>
+  <li><%= b.name %></li>
+  <li class="btn"><%= link_to 'show beers', breweries_show_path(id: b.id)%></li>
+  <br>
   <% end %>
+  <br>
+
 </ul>

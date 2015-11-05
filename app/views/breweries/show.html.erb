@@ -1,0 +1,13 @@
+<h4>Beers for</h4>
+
+<ul>
+
+    <% @brewery.each do |b| %>
+    <li><%= image_tag(b.labels[:medium]) if b.labels %></li>
+    <li>name: <%= b.name %></li>
+    <li>Abv: <%= b.abv %></li>
+    <li>Glass: <%= b.glass[:name] if b.glass %></li>
+    <br>
+    <% end %>
+
+</ul>

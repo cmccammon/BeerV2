@@ -11,16 +11,7 @@ class BeersController < ApplicationController
   end
 
   def show
-    @beer = Brewery.beers.find(params[:beer_id])
+    @beer = Brewery.beers.find(params[:id])
   end
-
-  def brewery
-    if params[:search].nil?
-      @breweries = []
-    else
-      @breweries = Brewery.search.breweries(q: params[:search])
-    end
-  end
-  
 
 end

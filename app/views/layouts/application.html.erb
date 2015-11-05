@@ -18,8 +18,8 @@
   <ul id="nav-mobile" class="left hide-on-med-and-down">
     <li><%= link_to 'Home'     , root_path %></li>
     <% if user_signed_in? %>
-      <li><%= link_to 'Beers'    , beers_index_path %></li>
-      <li><%= link_to 'Breweries', beers_brewery_path %></li>
+      <li><%= link_to 'Beers'    , beers_path %></li>
+      <li><%= link_to 'Breweries', breweries_path %></li>
       <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
