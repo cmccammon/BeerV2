@@ -6,7 +6,7 @@ $secondary-color: color("light-blue", "lighten-2") !default;
 
 .welcome {
   /* Location of the image */
-  background-image: url('background_photo.jpg');
+  background-image: image-url('background_photo.jpg');
 
   background-position: center center;
 
