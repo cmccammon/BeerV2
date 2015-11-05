@@ -10,9 +10,10 @@ Rails.application.routes.draw do
 
   get 'beers/index'
   get 'beers/show'
+  get 'beers/brewery'
   resources :posts
 
   get "/welcome", to: "welcome#index", as: :welcome_page
 
-  root to: "welcome#index"
+  root to: "posts#index"
 end
