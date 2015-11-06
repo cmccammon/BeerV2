@@ -1,9 +1,15 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= @post.comment %>
-</p>
+
+  <p>
+
+    <%= image_tag(@beer.labels.medium) if @beer.labels  %><br>
+    <h3><%= @beer.name %></h3>
+  </p>
+  <p>
+    Comment:
+    <%= @post.comment %>
+  </p>
 
 
 <%= link_to 'Edit', edit_post_path(@post) %> |

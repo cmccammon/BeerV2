@@ -10,6 +10,7 @@
 <ul class="collection light-blue lighten-2" >
   <% @beers.each do |beer| %>
   <li class="collection-item active"><h2><%= link_to beer.name, beers_show_path(id: beer.id) %></h2></li>
+  <li class="collection-item active"><h2><%= link_to "New Post for #{beer.name}", new_post_path(beer_id: beer.id) %></h2></li>
   <li class="collection-item">ABV: <%= beer.abv %></li>
   <li class="collection-item">IBU: <%= beer.ibu %></li>
   <li class="collection-item">inspect: <%= beer.description %></li>

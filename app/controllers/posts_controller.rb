@@ -10,12 +10,14 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    
+    @beer = Brewery.beers.find(@post.beer_id)
   end
 
   # GET /posts/new
   def new
     @post = current_user.posts.build
+    @beer = Brewery.beers.find(params[:beer_id])
+    @beer_id = params[:beer_id]
   end
 
   # GET /posts/1/edit
@@ -26,7 +28,6 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = current_user.posts.build(post_params)
-
     respond_to do |format|
       if @post.save
         format.html { redirect_to @post, notice: 'Post was successfully created.' }
