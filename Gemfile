@@ -21,6 +21,7 @@ gem 'bcrypt'
 gem 'react-rails'
 gem 'devise'
 gem 'brewery_db'
+gem 'ratyrate'
 
 
 group :development, :test do

@@ -1,7 +1,12 @@
 
 <% @user_posts.each do |u| %>
 <ul>
+  <h3><%= @beer.name %></h3>
+  <li><%= image_tag(@beer.labels.medium) if @beer.labels  %></li><br>
   <li><%= u.comment %></li>
+  <% if current_user %>
+    <li>Rating  : <%= rating_for @post, '()', enable_half: true %></li>
+  <% end %>
   <li><%= u.user.full_name %></li>
 </ul>
 <% end %>
