@@ -1,13 +1,16 @@
-<h1>Listing of breweries</h1>
+<h2>Search for breweries</h2>
+
 <%= form_tag breweries_path, :method => 'get' do %>
-  <p>
+  <p class="input-field">
+    <%= label_tag 'search breweries' %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'search', :name => nil %>
+  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <i class="material-icons right">send</i>
+  </button>
   </p>
 <% end %>
 
 <ul>
-
   <% @breweries.each do |b| %>
   <li><%= image_tag(b.images[:medium]) if b.images %></li>
   <li><%= b.name %></li>

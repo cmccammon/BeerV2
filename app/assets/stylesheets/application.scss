@@ -3,6 +3,15 @@ $primary-color: color("light-blue", "lighten-2") !default;
 $secondary-color: color("light-blue", "lighten-2") !default;
 @import "materialize";
 
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
 
 .welcome {
   /* Location of the image */

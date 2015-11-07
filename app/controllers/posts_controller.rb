@@ -10,7 +10,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
-    @beer = Brewery.beers.find(@post.beer_id)
+    
   end
 
   # GET /posts/new

@@ -1,18 +1,21 @@
-<h1>Listing Beers</h1>
+<h2>Search for Beers</h2>
 
 <%= form_tag beers_path, :method => 'get' do %>
-  <p>
+  <p class="input-field">
+    <%= label_tag 'search for beer' %>
     <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag 'search', :name => nil %>
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+      <i class="material-icons right">send</i>
+    </button>
   </p>
 <% end %>
 
-<ul class="collection light-blue lighten-2" >
+<ul>
   <% @beers.each do |beer| %>
-  <li class="collection-item active"><h2><%= link_to beer.name, beers_show_path(id: beer.id) %></h2></li>
-  <li class="collection-item active"><h2><%= link_to "New Post for #{beer.name}", new_post_path(beer_id: beer.id) %></h2></li>
-  <li class="collection-item">ABV: <%= beer.abv %></li>
-  <li class="collection-item">IBU: <%= beer.ibu %></li>
-  <li class="collection-item">inspect: <%= beer.description %></li>
+  <li><h2><%= link_to beer.name, beers_show_path(id: beer.id) %></h2></li>
+  <li><h2><%= link_to "New Post for #{beer.name}", new_post_path(beer_id: beer.id) %></h2></li>
+  <li>ABV: <%= beer.abv %></li>
+  <li>IBU: <%= beer.ibu %></li>
+  <li>inspect: <%= beer.description %></li>
   <% end %>
 </ul>

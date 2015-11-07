@@ -1,12 +1,10 @@
 
 <% @user_posts.each do |u| %>
 <ul>
-  <h3><%= @beer.name %></h3>
-  <li><%= image_tag(@beer.labels.medium) if @beer.labels  %></li><br>
+  <li><%= image_tag(u.beer.labels.medium) if u.beer.labels  %></li>
+  <li><%= u.beer.name %></li>
   <li><%= u.comment %></li>
-  <% if current_user %>
-    <li>Rating  : <%= rating_for @post, '()', enable_half: true %></li>
-  <% end %>
   <li><%= u.user.full_name %></li>
+  <li class="btn"><%= link_to 'Show', post_path(u.id) %></li>
 </ul>
 <% end %>

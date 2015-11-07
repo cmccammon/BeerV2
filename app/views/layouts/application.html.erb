@@ -14,13 +14,16 @@
 <nav>
   <div class="nav-wrapper">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <% if user_signed_in? %>
        <li><%= link_to 'Profile', profile_index_path %></li>
+       <% end %>
      </ul>
   <ul id="nav-mobile" class="left hide-on-med-and-down">
-    <li><%= link_to 'Home'     , root_path %></li>
     <% if user_signed_in? %>
+      <li><%= link_to 'New'     , root_path %></li>
       <li><%= link_to 'Beers'    , beers_path %></li>
       <li><%= link_to 'Breweries', breweries_path %></li>
+      <li><%= link_to 'Posts', posts_path %></li>
       <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
     <% else %>
       <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
@@ -38,5 +41,13 @@
 <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
 </body>
+<footer class="page-footer">
+  <div class="footer-copyright">
+    <div class="container">
+    © 2015 Copyright 'Zom Wohl'
+    <a class="grey-text text-lighten-4 right" href="#!">About</a>
+    </div>
+  </div>
+</footer>
 
 </html>
