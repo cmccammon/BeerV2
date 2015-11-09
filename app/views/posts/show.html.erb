@@ -1,22 +1,29 @@
+<div class="row">
+  <div class="col s12 m12">
+    <div class="card hoverable">
+      <div class="card-content light-blue lighten-5 black-text">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(@post.beer.name, length: 28, separator: ' ') %></span>
 
-    <p><%= image_tag(@post.beer.labels.medium) if @post.beer.labels  %><br></p>
-    <h3><%= @post.beer.name %></h3>
-    <p>Availability: <%= @post.beer.available.name if @post.beer.available %> </p>
-    <blockquote>
-    Description: <%= @post.beer.description %>
-    </blockquote>
+        <p><%= image_tag(@post.beer.labels.medium) if @post.beer.labels  %><br></p>
 
+        <p>Availability: <%= @post.beer.available.name if @post.beer.available %> </p>
 
-  <p>
-    Comment:
-    <%= @post.comment %>
-  </p>
+        <p>Description: <%= @post.beer.description %></p>
+        <br>
+        <div class="divider"></div>
+        <br>
+        <p>
+          Comment:
+          <%= @post.comment %>
+        </p>
+          <br>
+        <% if current_user %>
+          <p>Rating: <%= rating_for @post, 'beer', enable_half: true %></p>
+        <% end %>
 
-
-  <% if current_user %>
-    Rating  : <%= rating_for @post, 'beer', enable_half: true %>
-  <% end %>
-
-
-<%= link_to 'Edit', edit_post_path(@post) %>
-<%= link_to 'Back', posts_path %>
+      </div>
+      <div class="card-action light-blue lighten-5">
+        <%= link_to 'Back', posts_path %>
+      </div>
+    </div>
+  </div>

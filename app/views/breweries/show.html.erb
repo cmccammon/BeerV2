@@ -1,13 +1,27 @@
-<h4>Beers for</h4>
+<h4><%= @brewery_name.name %></h4>
 
-<ul>
-    <% @brewery.each do |b| %>
-    <li><%= image_tag(b.labels[:medium]) if b.labels %></li>
-    <li>name: <%= b.name %></li>
-    <li>Abv: <%= b.abv %></li>
-    <li>Glass: <%= b.glass[:name] if b.glass %></li>
-    <li><%= link_to "New Post", new_post_path(beer_id: b.id), class: "light-blue-text"%></li>
-    <br>
-    <% end %>
 
-</ul>
+<div class="divider"></div>
+<div class="row">
+  <% @brewery.each do |b| %>
+  <div class="col s12 m6">
+    <div class="card hoverable">
+      <div class="card-content">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(b.name, length: 28, separator: ' ') %></span>
+        <ul>
+          <li><%= image_tag(b.labels[:medium]) if b.labels %></li>
+          <li>Abv: <%= b.abv %></li>
+          <li>IBU: <%= b.ibu if b.ibu %></li>
+          <li>Glass: <%= b.glass[:name] if b.glass %></li>
+          
+        </ul>
+        </div>
+      <div class="card-action light-blue lighten-5">
+        <% if user_signed_in? %>
+        <%= link_to "New Post", new_post_path(beer_id: b.id), class: "light-blue-text"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <% end %>
+</div>

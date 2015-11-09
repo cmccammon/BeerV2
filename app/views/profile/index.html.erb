@@ -1,10 +1,29 @@
+<h2><%= @user.full_name %>'s beer log</h2>
+<div class="row">
+  <% @user_posts.each do |u| %>
+  <div class="col s12 m6">
+    <div class="card hoverable">
+      <div class="card-content light-blue lighten-5 black-text">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(u.beer.name, length: 28, separator: ' ') %></span>
+        <ul>
+          <li>User comment: <%= u.comment %></li>
+          <li>Rating: <%= rating_for u, 'beer', enable_half: true %></li><br>
 
-<% @user_posts.each do |u| %>
-<ul>
-  <li><%= image_tag(u.beer.labels.medium) if u.beer.labels  %></li>
-  <li><%= u.beer.name %></li>
-  <li><%= u.comment %></li>
-  <li><%= u.user.full_name %></li>
-  <li class="btn"><%= link_to 'Show', post_path(u.id) %></li>
-</ul>
-<% end %>
+          <li>ABV: <%= u.beer.abv %></li>
+          <% if u.beer.ibu %>
+           <li>IBU: <%= u.beer.ibu %></li>
+           <% end %>
+           <% if u.beer.available %>
+          <li>Avalilability: <%= u.beer.available.name%></li>
+          <% end %>
+        <li>description: <%= truncate(u.beer.description, length: 108, separator: ' ') %></li>
+      </ul>
+      </div>
+      <div class="card-action light-blue lighten-5">
+
+        <%= link_to "Beer website", "http://www.google.com/", data: { confirm: "You are about to leave this web site, Are you sure?" }, class: "light-blue-text"%>
+      </div>
+    </div>
+  </div>
+ <% end %>
+</div>
