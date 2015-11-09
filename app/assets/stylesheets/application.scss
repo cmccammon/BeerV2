@@ -58,6 +58,11 @@ main {
 
   .card-content {
     min-height: 250px;
+
+    &.breweries {
+      min-height: 514px;
+    }
+
     padding: 0 0 20px 0;
 
     ul {

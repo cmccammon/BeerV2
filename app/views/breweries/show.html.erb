@@ -4,16 +4,17 @@
 <div class="divider"></div>
 <div class="row">
   <% @brewery.each do |b| %>
+  <% if b.labels %>
   <div class="col s12 m6">
     <div class="card hoverable">
-      <div class="card-content">
-        <span class="card-title  amber accent-2 black-text"><%= truncate(b.name, length: 28, separator: ' ') %></span>
+      <div class="card-content breweries">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(b.name, length: 38, separator: ' ') %></span>
         <ul>
           <li><%= image_tag(b.labels[:medium]) if b.labels %></li>
           <li>Abv: <%= b.abv %></li>
           <li>IBU: <%= b.ibu if b.ibu %></li>
-          <li>Glass: <%= b.glass[:name] if b.glass %></li>
-          
+          <li>Description: <%= truncate(b.description, length: 280, separator: ' ')%></li>
+
         </ul>
         </div>
       <div class="card-action light-blue lighten-5">
@@ -23,5 +24,6 @@
       </div>
     </div>
   </div>
+  <% end %>
   <% end %>
 </div>
