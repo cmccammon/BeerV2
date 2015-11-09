@@ -1,6 +1,7 @@
 @import "materialize/components/color";
 $primary-color: color("light-blue", "lighten-2") !default;
-$secondary-color: color("light-blue", "lighten-2") !default;
+$secondary-color: color("amber", "accent-2") !default;
+$link-color: color("light-blue", "darken-1") !default;
 @import "materialize";
 
 body {
@@ -15,7 +16,12 @@ main {
 
 .welcome {
   /* Location of the image */
-  background-image: image-url('background_photo.jpg');
+  background:
+    linear-gradient(
+    rgba(50, 50, 50, 0.4),
+    rgba(50, 50, 50, 0.1)
+    ),
+    image-url('background_photo.jpg');
 
   background-position: center center;
 
@@ -26,15 +32,47 @@ main {
   background-size: cover;
 
   background-color: #464646;
+
 }
 
-a {
-  color: gray;
+
+.title{
+  color: white;
+  padding-top: 10%;
+  text-shadow: 2px 2px black;
 }
+
 .centered {
   position: fixed;
   top: 50%;
   left: 50%;
   /* bring your own prefixes */
   transform: translate(-50%, -50%);
+}
+
+.card {
+
+  margin-bottom: 60px;
+
+
+
+  .card-content {
+    min-height: 250px;
+    padding: 0 0 20px 0;
+
+    ul {
+      padding-left: 20px;
+    }
+
+    .card-title {
+      display: block;
+      padding-left: 20px;
+    }
+  }
+
+}
+
+.btn-large{
+  font-size: 35px;
+  color: black;
 }

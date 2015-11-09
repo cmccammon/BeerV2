@@ -5,7 +5,7 @@ class BeersController < ApplicationController
     if params[:search].nil?
       @beers = []
     else
-      @beers = Brewery.search.beers(q: params[:search])
+      @beers = Brewery.search.beers(q: params[:search]).take(20)
     end
   end
 

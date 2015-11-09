@@ -1,8 +1,10 @@
 
-  <p><%= image_tag(@post.beer.labels.medium) if @post.beer.labels  %><br></p>
+    <p><%= image_tag(@post.beer.labels.medium) if @post.beer.labels  %><br></p>
     <h3><%= @post.beer.name %></h3>
     <p>Availability: <%= @post.beer.available.name if @post.beer.available %> </p>
-    <p>Description: <%= @post.beer.description %> </p>
+    <blockquote>
+    Description: <%= @post.beer.description %>
+    </blockquote>
 
 
   <p>

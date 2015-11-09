@@ -7,40 +7,62 @@
   <%= csrf_meta_tags %>
 </head>
   <% if controller_name == "welcome" %>
-  <body class="welcome">
+<body class="welcome">
+  <div class="shadow">
   <% else %>
-  <body>
+<body>
   <% end %>
-<nav>
-  <div class="nav-wrapper">
-    <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <% if user_signed_in? %>
-       <li><%= link_to 'Profile', profile_index_path %></li>
-       <% end %>
-     </ul>
-  <ul id="nav-mobile" class="left hide-on-med-and-down">
-    <% if user_signed_in? %>
-      <li><%= link_to 'New'     , root_path %></li>
-      <li><%= link_to 'Beers'    , beers_path %></li>
-      <li><%= link_to 'Breweries', breweries_path %></li>
-      <li><%= link_to 'Posts', posts_path %></li>
-      <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
-    <% else %>
-      <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
-      <li><%= link_to 'Log In'   , new_user_session_path %></li>
-    <% end %>
-   </ul>
- </div>
-</nav>
 
+  <nav>
+    <div class="nav-wrapper">
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <% if user_signed_in? %>
+         <li><%= link_to 'Profile', profile_index_path %></li>
+         <% end %>
+       </ul>
+    <ul id="nav-mobile" class="left hide-on-med-and-down">
+      <% if user_signed_in? %>
+        <li><%= link_to 'New'     , root_path %></li>
+        <li><%= link_to 'Beers'    , beers_path %></li>
+        <li><%= link_to 'Breweries', breweries_path %></li>
+        <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+        <li><%= link_to 'Log In'   , new_user_session_path %></li>
+      <% end %>
+     </ul>
+     <ul id="slide-out" class="side-nav">
+       <% if user_signed_in? %>
+         <li><%= link_to 'New'     , root_path %></li>
+         <li><%= link_to 'Beers'    , beers_path %></li>
+         <li><%= link_to 'Breweries', breweries_path %></li>
+         <li><%= link_to 'Posts', posts_path %></li>
+         <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
+       <% else %>
+         <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
+         <li><%= link_to 'Log In'   , new_user_session_path %></li>
+       <% end %>
+       <% if user_signed_in? %>
+        <li><%= link_to 'Profile', profile_index_path %></li>
+        <% end %>
+      </ul>
+     </ul>
+    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+   </div>
+  </nav>
+  <main>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-<div class="container">
-<%= yield %>
-</div>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 
+    <div class="container">
+    <%= yield %>
+    </div>
+
+  </main>
+</div>
 </body>
+<% unless controller_name == "welcome" %>
 <footer class="page-footer">
   <div class="footer-copyright">
     <div class="container">
@@ -49,5 +71,6 @@
     </div>
   </div>
 </footer>
-
+<% end %>
+<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 </html>

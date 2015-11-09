@@ -1,22 +1,38 @@
-<h2>Search for breweries</h2>
 
-<%= form_tag breweries_path, :method => 'get' do %>
+<div class="row">
+  <div class="col s12">
+    <h2>Search for breweries</h2>
+
+    <%= form_tag breweries_path, :method => 'get' do %>
   <p class="input-field">
     <%= label_tag 'search breweries' %>
     <%= text_field_tag :search, params[:search] %>
-  <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+    <button class="btn waves-effect waves-light" type="submit" name="action">Submit
     <i class="material-icons right">send</i>
-  </button>
+    </button>
   </p>
-<% end %>
+    <% end %>
+  </div>
+</div>
 
-<ul>
-  <% @breweries.each do |b| %>
-  <li><%= image_tag(b.images[:medium]) if b.images %></li>
-  <li><%= b.name %></li>
-  <li class="btn"><%= link_to 'show beers', breweries_show_path(id: b.id)%></li>
-  <br>
+
+<div class="divider"></div>
+<div class="row">
+  <% @breweries.each do |br| %>
+  <div class="col s12 m6">
+    <div class="card hoverable">
+      <div class="card-content">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(br.name, length: 28, separator: ' ') %></span>
+          <p>
+            <%= image_tag(br.images[:medium]) if br.images %><br>
+            <%= br.description %>
+          </p>
+        </div>
+      <div class="card-action light-blue lighten-5">
+        <%= link_to "List beers", breweries_show_path(id: br.id), class: "light-blue-text"%>
+        <%= link_to "Brewers Website", br.website, class: "light-blue-text"%>
+      </div>
+    </div>
+  </div>
   <% end %>
-  <br>
-
-</ul>
+</div>

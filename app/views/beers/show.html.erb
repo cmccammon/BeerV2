@@ -4,4 +4,5 @@
     <h3><%= @beer.name %></h3><%= image_tag(@beer.labels.medium) if @beer.labels  %>
     <li><strong>Abv: </strong><%= @beer.abv %></li>
     <li><strong>glassware: </strong><%= @beer.glass.name if @beer.glass %></li>
+    <%= @beer.inspect %>
 </ul>

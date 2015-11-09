@@ -6,6 +6,7 @@
     <li>name: <%= b.name %></li>
     <li>Abv: <%= b.abv %></li>
     <li>Glass: <%= b.glass[:name] if b.glass %></li>
+    <li><%= link_to "New Post", new_post_path(beer_id: b.id), class: "light-blue-text"%></li>
     <br>
     <% end %>
 
