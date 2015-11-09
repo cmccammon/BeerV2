@@ -9,5 +9,6 @@ class Post < ActiveRecord::Base
       @beer ||= Brewery.beers.find(self.beer_id)
     end
   end
-
+  paginates_per 10
+  
 end
