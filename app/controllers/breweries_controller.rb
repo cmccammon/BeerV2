@@ -2,7 +2,7 @@ class BreweriesController < ApplicationController
 
 
   def index
-    if params[:search].nil?
+    if params[:search].blank?
       @breweries = []
     else
       @breweries = Brewery.search.breweries(q: params[:search])

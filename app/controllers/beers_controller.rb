@@ -2,7 +2,7 @@ class BeersController < ApplicationController
   before_action :set_beer, only: [:edit, :update, :destroy]
 
   def index
-    if params[:search].nil?
+    if params[:search].blank?
       @beers = []
     else
       @beers = Brewery.search.beers(q: params[:search]).take(20)
