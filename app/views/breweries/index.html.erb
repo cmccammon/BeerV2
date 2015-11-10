@@ -31,7 +31,7 @@
       <div class="card-action light-blue lighten-5">
         <%= link_to "List beers", breweries_show_path(id: br.id), class: "light-blue-text"%>
         <% if user_signed_in? %>
-        <%= link_to "Brewers Website", br.website, class: "light-blue-text"%>
+        <%= link_to "Brewers Website", br.website, data: { confirm: "You are about to leave this web site, Are you sure?" }, class: "light-blue-text"%>
         <% end %>
       </div>
     </div>
