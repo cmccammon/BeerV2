@@ -1,8 +1,25 @@
 <h4>Beer details</h4>
 
-<ul>
-    <h3><%= @beer.name %></h3><%= image_tag(@beer.labels.medium) if @beer.labels  %>
-    <li><strong>Abv: </strong><%= @beer.abv %></li>
-    <li><strong>glassware: </strong><%= @beer.glass.name if @beer.glass %></li>
-    <%= @beer.inspect %>
-</ul>
+<div class="divider"></div>
+<div class="row">
+  <div class="col s12 m6">
+    <div class="card hoverable">
+      <div class="card-content breweries">
+        <span class="card-title  amber accent-2 black-text"><%= truncate(@beer.name, length: 38, separator: ' ') %></span>
+        <ul>
+          <%= image_tag(@beer.labels.medium) if @beer.labels  %>
+          <li>Abv:<%= @beer.abv %></li>
+
+          <li>IBU: <%= @beer.ibu if @beer.ibu %></li>
+          <li>Description: <%=truncate(@beer.description, length: 380, separator: ' ')%></li>
+        </ul>
+        </div>
+      <div class="card-action light-blue lighten-5">
+        <% if user_signed_in? %>
+        <%= link_to "New Post", new_post_path(beer_id: @beer.id), class: "light-blue-text"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
+</div>
