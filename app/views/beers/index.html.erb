@@ -23,6 +23,7 @@
       <div class="card-content light-blue lighten-5 black-text">
         <span class="card-title  amber accent-2 black-text"><%= truncate(beer.name, length: 28, separator: ' ') %></span>
         <ul>
+        <li><%= image_tag(beer.labels[:icon]) if beer.labels %></li>
           <li>ABV: <%= beer.abv %></li>
           <% if beer.ibu %>
            <li>IBU: <%= beer.ibu %></li>
