@@ -68,7 +68,9 @@ main {
     &.breweries {
       min-height: 514px;
     }
-
+    &.profile {
+      min-height: 318px;
+    }
     padding: 0 0 20px 0;
 
     ul {
@@ -85,6 +87,10 @@ main {
     }
   }
 
+}
+
+.btn {
+  color: black;
 }
 
 .btn-large{

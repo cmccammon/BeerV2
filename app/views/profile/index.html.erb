@@ -3,7 +3,7 @@
   <% @user_posts.each do |u| %>
   <div class="col s12 m6">
     <div class="card hoverable">
-      <div class="card-content light-blue lighten-5 black-text">
+      <div class="card-content profile light-blue lighten-5 black-text">
         <span class="card-title  amber accent-2 black-text"><%= truncate(u.beer.name, length: 28, separator: ' ') %></span>
         <ul>
           <li>User comment: <%= u.comment %></li>
