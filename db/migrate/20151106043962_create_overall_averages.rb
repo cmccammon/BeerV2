@@ -13,4 +13,3 @@ class CreateOverallAverages < ActiveRecord::Migration
   end
 
 end
-

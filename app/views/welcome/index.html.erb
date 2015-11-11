@@ -2,13 +2,13 @@
 <div class="welcome">
   <div class="container">
     <div class="row">
-      <div class="col s12">
-        <h1 class="title center-align">Welcome to Zum Wohl!</h1>
+      <div class="col s12 center-align">
+        <h1 class="title">Welcome to Zum Wohl!</h1>
         <% unless user_signed_in? %>
-        <h4 class="tag-line thin center-align">Track your journey to the perfect pint.</h4>
+        <h4 class="tag-line thin">Track your journey to the perfect pint.</h4>
         <% end %>
+        <%= link_to 'Prost!', beers_path, class: "waves-effect waves-light btn-large" %>
       </div>
-       <%= link_to 'Prost!', beers_path, class: "centered waves-effect waves-light btn-large" %>
     </div>
   </div>
 </div>

@@ -15,6 +15,7 @@
         </ul>
         </div>
       <div class="card-action light-blue lighten-5">
+        <%= link_to "Back", :back %>
         <% if user_signed_in? %>
         <%= link_to "New Entry", new_post_path(beer_id: @beer.id), class: "light-blue-text"%>
         <% end %>
