@@ -25,7 +25,7 @@
         <li><%= link_to 'New'     , root_path %></li>
         <li><%= link_to 'Beers'    , beers_path %></li>
         <li><%= link_to 'Breweries', breweries_path %></li>
-        <li><%= link_to 'Posts', posts_path %></li>
+        <li><%= link_to 'Entries', posts_path %></li>
         <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
       <% else %>
         <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
@@ -37,7 +37,7 @@
          <li><%= link_to 'New'     , root_path %></li>
          <li><%= link_to 'Beers'    , beers_path %></li>
          <li><%= link_to 'Breweries', breweries_path %></li>
-         <li><%= link_to 'Posts', posts_path %></li>
+         <li><%= link_to 'Entries', posts_path %></li>
          <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
        <% else %>
          <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>

@@ -69,7 +69,7 @@ main {
       min-height: 514px;
     }
     &.profile {
-      min-height: 318px;
+      min-height: 346px;
     }
     padding: 0 0 20px 0;
 
@@ -82,13 +82,18 @@ main {
     }
 
     .card-title {
+      font-size: 30px;
+      padding-top: 3px;
+      padding-bottom: 3px;
       display: block;
       padding-left: 20px;
     }
   }
 
 }
-
+.star {
+  padding-left: 15px;
+}
 .btn {
   color: black;
 }
