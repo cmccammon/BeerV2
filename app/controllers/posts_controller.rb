@@ -7,9 +7,6 @@ class PostsController < ApplicationController
     @posts = Post.order('created_at DESC').page params[:page]
   end
 
-  # GET /posts/1
-  # GET /posts/1.json
-
   def show
 
   end
