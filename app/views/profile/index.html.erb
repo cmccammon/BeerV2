@@ -6,23 +6,32 @@
       <div class="card-content profile light-blue lighten-5 black-text">
         <span class="card-title amber accent-2 black-text"><%= truncate(u.beer.name, length: 28, separator: ' ') %></span>
         <ul>
-          <li>User comment: <%= u.comment %></li>
-          <li>Rating: <%= rating_for u, 'beer', enable_half: true %></li><br>
-          <li>Created: <%= u.created_at.strftime("%m/%d/%Y at %I:%M%p") %></li>
-          <li>ABV: <%= u.beer.abv %></li>
+          <li>ABV:
+            <%= u.beer.abv %></li>
           <% if u.beer.ibu %>
-           <li>IBU: <%= u.beer.ibu %></li>
-           <% end %>
-           <% if u.beer.available %>
-          <li>Avalilability: <%= u.beer.available.name%></li>
+          <li>IBU:
+            <%= u.beer.ibu %></li>          
           <% end %>
-        <li>description: <%= truncate(u.beer.description, length: 160, separator: ' ') %></li>
-      </ul>
+          <% if u.beer.available %>
+          <li>Avalilability:
+            <%= u.beer.available.name%></li>
+          <% end %>
+          <li>description:
+            <%= truncate(u.beer.description, length: 160, separator: ' ') %></li>
+            <li><%= u.beer.inspect %></li>
+        </ul>
       </div>
       <div class="card-action light-blue lighten-5">
-
+        <ul>
+          <li>First entry:
+            <%= u.created_at.strftime("%a %m-%d at %H:%M") %></li>
+          <li>User comment:
+            <%= u.comment %></li>
+          <li>Rating:
+            <%= rating_for u, 'beer', enable_half: true %></li><br>
+        </ul>
       </div>
     </div>
   </div>
- <% end %>
+  <% end %>
 </div>

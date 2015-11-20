@@ -6,9 +6,12 @@
 
         <p><%= image_tag(@post.beer.labels.medium) if @post.beer.labels  %><br></p>
 
-        <p>Availability: <%= @post.beer.available.name if @post.beer.available %> </p>
+        <p>Availability:
+          <%= @post.beer.available.name if @post.beer.available %>
+        </p>
 
-        <p>Description: <%= @post.beer.description %></p>
+        <p>Description:
+          <%= @post.beer.description %></p>
         <br>
         <div class="divider"></div>
         <br>
@@ -16,9 +19,10 @@
           Comment:
           <%= @post.comment %>
         </p>
-          <br>
+        <br>
         <% if current_user %>
-          <p>Rating: <%= rating_for @post, 'beer', enable_half: true %></p>
+        <p>Rating:
+          <%= rating_for @post, 'beer', enable_half: true %></p>
         <% end %>
 
       </div>
@@ -27,3 +31,4 @@
       </div>
     </div>
   </div>
+</div>

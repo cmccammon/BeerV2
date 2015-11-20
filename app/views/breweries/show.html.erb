@@ -1,6 +1,5 @@
 <h4><%= @brewery_name.name %></h4>
 
-
 <div class="divider"></div>
 <div class="row">
   <% @brewery.each do |b| %>
@@ -11,12 +10,14 @@
         <span class="card-title  amber accent-2 black-text"><%= truncate(b.name, length: 38, separator: ' ') %></span>
         <ul>
           <li><%= image_tag(b.labels[:medium]) if b.labels %></li>
-          <li>Abv: <%= b.abv %></li>
-          <li>IBU: <%= b.ibu if b.ibu %></li>
-          <li>Description: <%= truncate(b.description, length: 280, separator: ' ')%></li>
-
+          <li>Abv:
+            <%= b.abv %></li>
+          <li>IBU:
+            <%= b.ibu if b.ibu %></li>
+          <li>Description:
+            <%= truncate(b.description, length: 280, separator: ' ')%></li>
         </ul>
-        </div>
+      </div>
       <div class="card-action light-blue lighten-5">
         <% if user_signed_in? %>
         <%= link_to "New Entry", new_post_path(beer_id: b.id), class: "light-blue-text"%>

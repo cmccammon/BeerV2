@@ -1,73 +1,109 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <title>Zum Wohl!</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <%= csrf_meta_tags %>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <%= csrf_meta_tags %>
 </head>
-  <% if controller_name == "welcome" %>
-<body class="welcome">
-  <div class="shadow">
-  <% else %>
-<body>
-  <% end %>
+<% if controller_name == "welcome" %>
 
-  <nav>
-    <div class="nav-wrapper">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <% if user_signed_in? %>
-         <li><%= link_to 'Profile', profile_index_path %></li>
-         <% end %>
-       </ul>
-    <ul id="nav-mobile" class="left hide-on-med-and-down">
-      <% if user_signed_in? %>
-        <li><%= link_to 'New'     , root_path %></li>
-        <li><%= link_to 'Beers'    , beers_path %></li>
-        <li><%= link_to 'Breweries', breweries_path %></li>
-        <li><%= link_to 'Entries', posts_path %></li>
-        <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
+  <body class="welcome">
+    <div class="shadow">
       <% else %>
-        <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
-        <li><%= link_to 'Log In'   , new_user_session_path %></li>
-      <% end %>
-     </ul>
-     <ul id="slide-out" class="side-nav">
-       <% if user_signed_in? %>
-         <li><%= link_to 'New'     , root_path %></li>
-         <li><%= link_to 'Beers'    , beers_path %></li>
-         <li><%= link_to 'Breweries', breweries_path %></li>
-         <li><%= link_to 'Entries', posts_path %></li>
-         <li><%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %></li>
-       <% else %>
-         <li><%= link_to 'Sign Up'  , new_user_registration_path %></li>
-         <li><%= link_to 'Log In'   , new_user_session_path %></li>
-       <% end %>
-       <% if user_signed_in? %>
-        <li><%= link_to 'Profile', profile_index_path %></li>
-        <% end %>
-      </ul>
-     </ul>
-    <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
-   </div>
-  </nav>
-  <main>
-    <div class="container">
-    <%= yield %>
-    </div>
 
-  </main>
-</div>
-</body>
-<% unless controller_name == "welcome" %>
-<footer class="page-footer">
-  <div class="footer-copyright">
-    <div class="container">
-    © 2015 Copyright 'Zom Wohl'
-    <a class="grey-text text-lighten-4 right" href="#!"></a>
+        <body>
+          <% end %>
+
+            <nav>
+              <div class="nav-wrapper">
+                <ul id="nav-mobile" class="right hide-on-med-and-down">
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to 'Profile', profile_index_path %>
+                    </li>
+                    <% end %>
+                </ul>
+                <ul id="nav-mobile" class="left hide-on-med-and-down">
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to 'New'     , root_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Beers'    , beers_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Breweries', breweries_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Entries', posts_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %>
+                    </li>
+                    <% else %>
+                      <li>
+                        <%= link_to 'Sign Up'  , new_user_registration_path %>
+                      </li>
+                      <li>
+                        <%= link_to 'Log In'   , new_user_session_path %>
+                      </li>
+                      <% end %>
+                </ul>
+                <ul id="slide-out" class="side-nav">
+                  <% if user_signed_in? %>
+                    <li>
+                      <%= link_to 'New'     , root_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Beers'    , beers_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Breweries', breweries_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Entries', posts_path %>
+                    </li>
+                    <li>
+                      <%= link_to 'Log Out'  , destroy_user_session_path, method: :delete %>
+                    </li>
+                    <% else %>
+                      <li>
+                        <%= link_to 'Sign Up'  , new_user_registration_path %>
+                      </li>
+                      <li>
+                        <%= link_to 'Log In'   , new_user_session_path %>
+                      </li>
+                      <% end %>
+                        <% if user_signed_in? %>
+                          <li>
+                            <%= link_to 'Profile', profile_index_path %>
+                          </li>
+                          <% end %>
+                </ul>
+                </ul>
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
+              </div>
+            </nav>
+            <main>
+              <div class="container">
+                <%= yield %>
+              </div>
+
+            </main>
     </div>
-  </div>
-</footer>
-<% end %>
-<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    </body>
+    <% unless controller_name == "welcome" %>
+      <footer class="page-footer">
+        <div class="footer-copyright">
+          <div class="container">
+            © 2015 Copyright 'Zom Wohl'
+            <a class="grey-text text-lighten-4 right" href="#!"></a>
+          </div>
+        </div>
+      </footer>
+      <% end %>
+        <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+
 </html>

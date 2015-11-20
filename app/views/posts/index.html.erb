@@ -1,4 +1,3 @@
-
 <h2>All recent beer entries</h2>
 
 <table class="responsive-table">
@@ -14,16 +13,16 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.beer.name %></td>
-        <% if current_user %>
-          <td><%= rating_for post, 'beer', enable_half: true %></td>
-        <% end %>
-        <td><%= post.comment %></td>
+    <tr>
+      <td><%= post.beer.name %></td>
+      <% if current_user %>
+      <td><%= rating_for post, 'beer', enable_half: true %></td>
+      <% end %>
+      <td><%= post.comment %></td>
 
-        <td><%= post.user.first_name %></td>
-        <td ><%= link_to 'Details', post, class: "waves-effect waves-light btn" %></td>
-      </tr>
+      <td><%= post.user.first_name %></td>
+      <td ><%= link_to 'Details', post, class: "waves-effect waves-light btn" %></td>
+    </tr>
     <% end %>
   </tbody>
 </table>
