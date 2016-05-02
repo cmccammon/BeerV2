@@ -14,36 +14,42 @@
     <% end %>
   </div>
 </div>
-<div class="divider"></div>
+
 <div class="row">
-  <% @beers.each do |beer| %>
-  <% if beer.description %>
-  <div class="col s12 m6">
-    <div class="card hoverable">
-      <div class="card-content light-blue lighten-5 black-text">
-        <span class="card-title  amber accent-2 black-text"><%= truncate(beer.name, length: 28, separator: ' ') %></span>
-        <ul>
+  <div class="col s12">
+    <table>
+      <thead>
+        <tr>
+          <th>Beer Name</th>
+          <th>Style</th>
+          <th>ABV</th>
+          <th>availability</th>
+        </tr>
+      </thread>
+
+      <tbody>
+        <tr>
+        <% @beers.each do |beer| %>
+          <td><%= truncate(beer.name, length: 28, separator: ' ') %></td>
+
           <li><%= image_tag(beer.labels[:icon]) if beer.labels %></li>
           <li>ABV:
             <%= beer.abv %></li>
-          <% if beer.ibu %>
+
           <li>IBU:
-            <%= beer.ibu %></li>
-          <% end %>
+            <%= beer.ibu if beer.ibu%></li>
+
           <li>Avalilability:
             <%= beer.available.name if beer.available %></li>
+
           <li>description:
-            <%= truncate(beer.description, length: 278, separator: ' ') %></li>
+            <%= truncate(beer.description, length: 278, separator: ' ')  if beer.description %></li>
+
+            <%= link_to "Beer details", beers_show_path(id: beer.id), class: "light-blue-text"%>
+            <% if user_signed_in? %>
+            <%= link_to "New Entry", new_post_path(beer_id: beer.id), class: "light-blue-text"%>
+            <% end %>
         </ul>
-      </div>
-      <div class="card-action light-blue lighten-5">
-        <%= link_to "Beer details", beers_show_path(id: beer.id), class: "light-blue-text"%>
-        <% if user_signed_in? %>
-        <%= link_to "New Entry", new_post_path(beer_id: beer.id), class: "light-blue-text"%>
         <% end %>
-      </div>
     </div>
-  </div>
-  <% end %>
-  <% end %>
 </div>

@@ -7,8 +7,6 @@
               <th>Name</th>
               <th>First tried</th>
               <th>Comment</th>
-              <th>ABV</th>
-              <th>IBU</th>
               <th>Rating</th>
           </tr>
         </thead>
@@ -18,10 +16,6 @@
             <td><%= u.beer.name %></td>
             <td><%= u.created_at.strftime("%a %m-%d at %H:%M") %></td>
             <td><%= u.comment %></td>
-            <td><%= u.beer.abv %></td>
-            <% if u.beer.ibu %>
-            <td><%= u.beer.ibu %></td>
-            <% end %>
             <td> <%= rating_for u, 'beer', enable_half: true %> </td>
             <td ><%= link_to 'Details', post_path(id: u.id), class: "waves-effect waves-light btn" %></td>
           </tr>
