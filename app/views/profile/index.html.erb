@@ -1,37 +1,32 @@
-<h2><%= @user.first_name %>'s beer log</h2>
+<h3><%= @user.first_name %>'s beer log</h3>
 <div class="row">
-  <% @user_posts.each do |u| %>
-  <div class="col s12 m6">
-    <div class="card hoverable">
-      <div class="card-content profile light-blue lighten-5 black-text">
-        <span class="card-title amber accent-2 black-text"><%= truncate(u.beer.name, length: 28, separator: ' ') %></span>
-        <ul>
-          <li>ABV:
-            <%= u.beer.abv %></li>
-          <% if u.beer.ibu %>
-          <li>IBU:
-            <%= u.beer.ibu %></li>
+  <div class="col s12">
+    <table class="bordered">
+        <thead>
+          <tr>
+              <th>Name</th>
+              <th>First tried</th>
+              <th>Comment</th>
+              <th>ABV</th>
+              <th>IBU</th>
+              <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @user_posts.each do |u| %>
+          <tr>
+            <td><%= u.beer.name %></td>
+            <td><%= u.created_at.strftime("%a %m-%d at %H:%M") %></td>
+            <td><%= u.comment %></td>
+            <td><%= u.beer.abv %></td>
+            <% if u.beer.ibu %>
+            <td><%= u.beer.ibu %></td>
+            <% end %>
+            <td> <%= rating_for u, 'beer', enable_half: true %> </td>
+            <td ><%= link_to 'Details', post_path(id: u.id), class: "waves-effect waves-light btn" %></td>
+          </tr>
           <% end %>
-          <% if u.beer.available %>
-          <li>Avalilability:
-            <%= u.beer.available.name%></li>
-          <% end %>
-          <li>description:
-            <%= truncate(u.beer.description, length: 160, separator: ' ') %></li>
-            <li><%= u.beer.inspect %></li>
-        </ul>
-      </div>
-      <div class="card-action light-blue lighten-5">
-        <ul>
-          <li>First entry:
-            <%= u.created_at.strftime("%a %m-%d at %H:%M") %></li>
-          <li>User comment:
-            <%= u.comment %></li>
-          <li>Rating:
-            <%= rating_for u, 'beer', enable_half: true %></li><br>
-        </ul>
-      </div>
-    </div>
+        </tbody>
+      </table>
   </div>
-  <% end %>
 </div>
