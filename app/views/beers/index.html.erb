@@ -20,36 +20,34 @@
     <table>
       <thead>
         <tr>
+          <th colspan="1"></th>
           <th>Beer Name</th>
           <th>Style</th>
+          <th>Brewery</th>
           <th>ABV</th>
-          <th>availability</th>
+
         </tr>
       </thread>
 
       <tbody>
         <tr>
         <% @beers.each do |beer| %>
+          <% if beer.labels %>
+          <td><%= image_tag(beer.labels[:icon]) %></td>
           <td><%= truncate(beer.name, length: 28, separator: ' ') %></td>
 
-          <li><%= image_tag(beer.labels[:icon]) if beer.labels %></li>
-          <li>ABV:
-            <%= beer.abv %></li>
+          <td><%= beer.style.short_name if beer.style %></td>
+          <td><%=  %></td>
+          <td><%= beer.abv if beer.abv %></td>
+          <td><%= link_to "Beer details", beers_show_path(id: beer.id), class: "light-blue-text"%></td>
+                <% if user_signed_in? %>
+          <td><%= link_to "New Entry", new_post_path(beer_id: beer.id), class: "light-blue-text"%></td>
+                <% end %>
+          <% end %>
+        </tr>
 
-          <li>IBU:
-            <%= beer.ibu if beer.ibu%></li>
-
-          <li>Avalilability:
-            <%= beer.available.name if beer.available %></li>
-
-          <li>description:
-            <%= truncate(beer.description, length: 278, separator: ' ')  if beer.description %></li>
-
-            <%= link_to "Beer details", beers_show_path(id: beer.id), class: "light-blue-text"%>
-            <% if user_signed_in? %>
-            <%= link_to "New Entry", new_post_path(beer_id: beer.id), class: "light-blue-text"%>
-            <% end %>
-        </ul>
+      </tbody>
         <% end %>
+      </table>
     </div>
 </div>
