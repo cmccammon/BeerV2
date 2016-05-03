@@ -5,13 +5,13 @@ application up and running.
 
 Things you may want to cover:
 
-* Ruby version
+* Ruby version 2.2
 
-* System dependencies
+* System dependencies: figaro
 
-* Configuration
+* Configuration: clone, bundle, install Figaro,
 
-* Database creation
+* Database creation: rake DB create
 
 * Database initialization
 
@@ -22,7 +22,3 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
