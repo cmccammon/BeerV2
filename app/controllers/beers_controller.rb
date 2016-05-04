@@ -5,7 +5,7 @@ class BeersController < ApplicationController
     if params[:search].blank?
       @beers = []
     else
-      @beers = Brewery.search.beers(q: params[:search], withBreweries: 'n').take(20)
+      @beers = Brewery.search.beers(q: params[:search], withBreweries: 'y').take(20)
     end
   end
 
