@@ -37,7 +37,7 @@ group :development do
   gem 'spring'
 end
 
-
+  # Puma in production. 
 group :production do
   gem 'puma'
   gem 'rails_12factor'

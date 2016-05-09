@@ -1,5 +1,6 @@
 class Post < ActiveRecord::Base
   belongs_to :user
+  validates :comment, presence: true 
 
   ratyrate_rateable 'beer'
 

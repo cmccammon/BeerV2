@@ -4,7 +4,7 @@ With this app you can search for beer by name or brewery. Once you have found th
 
 "Track and rate your beers to the perfect pint."
 
-Things you may want to cover:
+
 
 * Ruby version 2.2.1
 
@@ -22,4 +22,4 @@ Things you may want to cover:
 
 * Deployment instructions: clone, bundle, install Figaro,
 
-* ...
+New readme in Markup coming soon...

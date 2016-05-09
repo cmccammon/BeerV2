@@ -7,6 +7,7 @@ class BeersController < ApplicationController
     else
       @beers = Brewery.search.beers(q: params[:search], withBreweries: 'y').take(20)
     end
+      #@brewery = Brewery.search.breweries(q: params[:n]).take(10)
   end
 
   def show
