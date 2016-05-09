@@ -1,6 +1,8 @@
 Zum-Whol Beer logging app.
 
-Track and rate your beers to the perfect pint.
+With this app you can search for beer by name or brewery. Once you have found the beer you can save it with a comment and rating.
+
+"Track and rate your beers to the perfect pint."
 
 Things you may want to cover:
 
